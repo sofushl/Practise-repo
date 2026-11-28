@@ -1,27 +1,18 @@
-pub fn insertion_sort(mut x: Vec<i32>) {
-    let mut o: Vec<i32> = vec![];
-    o.push(x.pop().unwrap());
-
-    'm: while let Some(y) = x.pop() {
-        println!("{:?}", x);
-        println!("{}", y);
-        println!("{:?}", o);
-        if o.is_empty() {
-            o.push(y)
-        } else {
-            for i in 0..o.len() {
-                if y <= o[i] {
-                    o.insert(i, y);
-                    continue 'm;
-                }
-            }
-            o.push(y);
+pub fn insertion_sort(a: &mut [i32]) {
+    for i in 1..a.len() {
+        let key = a[i];
+        let mut j = i;
+        while j > 0 && a[j - 1] > key {
+            a[j] = a[j - 1];
+            j -= 1;
         }
+        a[j] = key;
     }
-
-    println!("{:?}", o);
 }
 
 fn main() {
-    insertion_sort(vec![23, 42, 12, 35, 1, 15, 7, 9, 49, 2, 2]);
+    let mut a: Vec<i32> = vec![23, 42, 12, 35, 1, 15, 7, 9, 49, 2, 2];
+    println!("{:?}", a);
+    insertion_sort(&mut a);
+    println!("{:?}", a);
 }
