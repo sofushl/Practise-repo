@@ -1,2 +1,25 @@
 target
 a.out
+
+# Compiled output
+*.class
+*.jar
+*.war
+*.ear
+*.kotlin_module
+out/
+build/
+bin/
+ 
+# Kotlin
+META-INF
+.kotlin
+*.kotlin_builtins
+ 
+# Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+local.properties
+ 
+# Maven
+target/
